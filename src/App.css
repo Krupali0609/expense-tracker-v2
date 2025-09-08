@@ -1,38 +1,69 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Left side (sidebar) */
+.left-side {
+  flex: 1;
+  background-color: #0d6efd; /* Blue theme */
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+
+.app-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem; /* space below title */
+}
+
+/* Right side (main content) */
+.right-side {
+  flex: 3;
+  padding: 1.5rem;
+  background-color: #f8f9fa; /* Light background for content */
+}
+
+/* Navigation bar */
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #007bff; /* Darker blue for nav */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+/* Navigation links */
+nav a {
   color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hover effect for links */
+nav a:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Active link (optional, when implemented) */
+nav a.active {
+  background-color: #004080;
+}
+
+/* Page headings */
+h2 {
+  color: #0d6efd;
 }
