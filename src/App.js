@@ -8,7 +8,14 @@ import Viewexpense from './components/Viewexpense';
 import Viewsummary from './components/Viewsummary';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 function App() {
+  const[members, setMembers]=useState([])
+
+  const onaddmember=(name)=>{
+    const newmember={id:Date.now().toString(),name}
+    setMembers([...members, newmember])
+  }
   return (
     <BrowserRouter>
     <div className='app-container'>
@@ -29,7 +36,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/addmember' element={<Addmember/>}/>
+          <Route path='/addmember' element={<Addmember members={members} onaddmember={onaddmember}/>}/>
           <Route path='addexpense' element={<Addexpense/>}/>
           <Route path='upateexpense' element={<Updateexpense/>}/>
            <Route path="/viewexpense" element={<Viewexpense />} />
@@ -39,6 +46,8 @@ function App() {
       
     </div>
     </BrowserRouter>
+   
+   
   );
 }
 

@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Home.css"
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+const navigate=useNavigate()
+
   return (
     <div className="home-container"> 
       <div className="home-box">
@@ -26,7 +29,7 @@ const Home = () => {
               This is a simple React application with a modern blue theme.
               Explore more features by clicking the button below!
             </p>
-            <button className="home-button">Get Started</button>
+            <button className="home-button" onClick={()=>navigate("/addmember")}>Get Started</button>
           </div>
         </div>
 
