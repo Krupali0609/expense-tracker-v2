@@ -1,5 +1,65 @@
-.addmember {
-  padding: 1rem;
-  background-color: #e8f0fe;
-  border-radius: 8px;
+.addexpense-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #cce0ff; /* light blue border */
+  border-radius: 10px;
+  background-color: #e6f0ff; /* very light blue background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.addexpense-title {
+  text-align: center;
+  color: #004080; /* dark blue title */
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.addexpense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addexpense-input,
+.addexpense-select {
+  padding: 10px;
+  border: 1px solid #99c2ff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.addexpense-label {
+  font-weight: bold;
+  color: #004080;
+}
+
+.addexpense-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.addexpense-checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.addexpense-checkbox-item input {
+  margin-right: 10px;
+}
+
+.addexpense-button {
+  padding: 10px;
+  background-color: #3399ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.addexpense-button:hover {
+  background-color: #0073e6;
 }

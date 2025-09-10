@@ -16,6 +16,13 @@ function App() {
     const newmember={id:Date.now().toString(),name}
     setMembers([...members, newmember])
   }
+
+  const[expenses, setExpenses]=useState([])
+
+  const onaddexpense=(expense)=>{
+    const newexpense={...expense,id:Date.now().toString()}
+    setExpenses((prev)=>[...prev,newexpense])
+  }
   return (
     <BrowserRouter>
     <div className='app-container'>
@@ -37,8 +44,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/addmember' element={<Addmember members={members} onaddmember={onaddmember}/>}/>
-          <Route path='addexpense' element={<Addexpense/>}/>
-          <Route path='upateexpense' element={<Updateexpense/>}/>
+          <Route path='addexpense' element={<Addexpense members={members} onaddexpense={onaddexpense}/>}/>
+          <Route path='updateexpense' element={<Updateexpense/>}/>
            <Route path="/viewexpense" element={<Viewexpense />} />
             <Route path="/viewsummary" element={<Viewsummary />} />
         </Routes>
