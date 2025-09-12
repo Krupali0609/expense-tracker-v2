@@ -21,6 +21,7 @@ function App() {
 
   const onaddexpense=(expense)=>{
     const newexpense={...expense,id:Date.now().toString()}
+    console.log("in onaddexpense", newexpense)
     setExpenses((prev)=>[...prev,newexpense])
   }
   return (
@@ -45,8 +46,8 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/addmember' element={<Addmember members={members} onaddmember={onaddmember}/>}/>
           <Route path='addexpense' element={<Addexpense members={members} onaddexpense={onaddexpense}/>}/>
-          <Route path='updateexpense' element={<Updateexpense/>}/>
-           <Route path="/viewexpense" element={<Viewexpense />} />
+          <Route path='updateexpense' element={<Updateexpense />}/>
+           <Route path="/viewexpense" element={<Viewexpense expenses={expenses} members={members} />}/>
             <Route path="/viewsummary" element={<Viewsummary />} />
         </Routes>
        </div>

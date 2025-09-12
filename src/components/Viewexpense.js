@@ -1,8 +1,34 @@
 import React from 'react'
 
-const Viewexpense = () => {
+const Viewexpense = ({expenses,members}) => {
   return (
-    <div className='viewexpense'><h1>Viewexpense</h1></div>
+    <div className='viewexpense'>
+      <h1>Expenses</h1>
+      {expenses.length===0 ?
+      (<p>No expenses added yet</p>):(
+      <ul>
+        {expenses.map((expense)=>(
+          <li key={expense.id}>{expense.title}
+          <p><span>Amount:</span> 
+          {expense.amount}
+          </p>
+          <p className="expense-detail">
+                <span className="expense-label"> Paid By:</span>{" "}                  
+                {members.find((m) => m.id === Number (expense.paidby))?.name ?? "Unknown"}
+              </p>
+          <p>
+            <span>
+            Split between:
+            
+            </span>
+            {expense.splitbetween.map((id) => members.find((m) => m.id === id)?.name)
+                  .join(", ")}
+          </p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   )
 }
 
