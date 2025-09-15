@@ -15,8 +15,9 @@ const Addexpense = ({ onaddexpense, members }) => {
       return;
     }
 
-    const expense = { title, amount, paidby, splitbetween };
+    const expense = { title, amount, paidby: String(paidby), splitbetween };
     console.log("Adding expense", expense)
+    
     onaddexpense(expense)
     setTitle("");
     setAmount("");
@@ -55,7 +56,7 @@ const Addexpense = ({ onaddexpense, members }) => {
         <label className="addexpense-label">Paid By:</label>
         <select
           value={paidby}
-          onChange={(e) => setPaidby(Number(e.target.value))}
+          onChange={(e) => setPaidby(e.target.value)}
           className="addexpense-select"
         >
           <option value="">Select member</option>

@@ -13,8 +13,12 @@ const Viewexpense = ({expenses,members}) => {
           {expense.amount}
           </p>
           <p className="expense-detail">
-                <span className="expense-label"> Paid By:</span>{" "}                  
-                {members.find((m) => m.id === Number (expense.paidby))?.name ?? "Unknown"}
+                <span className="expense-label"> Paid By:</span>{" "}  
+               { console.log(members.find((m) => m.id ===  (expense.paidby))?.name )}
+                {console.log("Expense:", expense)}
+                {console.log("Members:", members)  } 
+
+                {members.find((m) => m.id ===  (expense.paidby))?.name ?? "Unknown"}
               </p>
           <p>
             <span>
