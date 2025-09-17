@@ -48,7 +48,7 @@ function App() {
           <Route path='addexpense' element={<Addexpense members={members} onaddexpense={onaddexpense}/>}/>
           <Route path='updateexpense' element={<Updateexpense />}/>
            <Route path="/viewexpense" element={<Viewexpense expenses={expenses} members={members} />}/>
-            <Route path="/viewsummary" element={<Viewsummary />} />
+            <Route path="/viewsummary" element={<Viewsummary  expenses={expenses} members={members}/>} />
         </Routes>
        </div>
       

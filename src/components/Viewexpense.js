@@ -1,33 +1,35 @@
 import React from 'react'
+import './Viewexpense.css';
 
-const Viewexpense = ({expenses,members}) => {
+const Viewexpense = ({ expenses, members }) => {
   return (
-    <div className='viewexpense'>
-      <h1>Expenses</h1>
-      {expenses.length===0 ?
-      (<p>No expenses added yet</p>):(
-      <ul>
-        {expenses.map((expense)=>(
-          <li key={expense.id}>{expense.title}
-          <p><span>Amount:</span> 
-          {expense.amount}
-          </p>
-          <p className="expense-detail">
-                <span className="expense-label"> Paid By:</span>{" "}  
-               { console.log(members.find((m) => m.id ===  (expense.paidby))?.name )}
-                {console.log("Expense:", expense)}
-                {console.log("Members:", members)  } 
+    <div className="viewexpense-container">
+      <h1 className="viewexpense-title">Expenses</h1>
 
-                {members.find((m) => m.id ===  (expense.paidby))?.name ?? "Unknown"}
+      {expenses.length === 0 ? (
+        <p className="no-expense">No expenses added yet</p>
+      ) : (
+        <ul className="expense-list">
+          {expenses.map((expense) => (
+            <li key={expense.id} className="expense-item">
+              <h3 className="expense-name">{expense.title}</h3>
+
+              <p className="expense-detail">
+                <span className="expense-label">Amount:</span>{" "}
+                {expense.amount}
               </p>
-          <p>
-            <span>
-            Split between:
-            
-            </span>
-            {expense.splitbetween.map((id) => members.find((m) => m.id === id)?.name)
+
+              <p className="expense-detail">
+                <span className="expense-label">Paid By:</span>{" "}
+                {members.find((m) => String(m.id) === String(expense.paidby))?.name ?? "Unknown"}
+              </p>
+
+              <p className="expense-detail">
+                <span className="expense-label">Split Between:</span>{" "}
+                {expense.splitbetween
+                  .map((id) => members.find((m) => String(m.id) === String(id))?.name)
                   .join(", ")}
-          </p>
+              </p>
             </li>
           ))}
         </ul>
