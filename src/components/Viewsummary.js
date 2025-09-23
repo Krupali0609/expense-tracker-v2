@@ -23,7 +23,7 @@ const Viewsummary = ({ members = [], expenses = [] }) => {
 
   members.forEach(m => ensureMember(m.id));
 
-  // Process each expense
+  
   expenses.forEach(exp => {
     const amount = Number(exp.amount) || 0;
     const payerId = ensureMember(exp.paidby);
